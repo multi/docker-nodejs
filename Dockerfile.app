@@ -1,4 +1,4 @@
-FROM multi/nodejs:5.3.0
+FROM multi/nodejs
 
 USER root
 
