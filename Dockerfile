@@ -13,7 +13,7 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
     wget https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz && \
     tar zxf node-${NODE_VERSION}.tar.gz && \
     cd node-${NODE_VERSION} && \
-    ./configure --prefix=/usr --shared-libuv --shared-openssl --shared-zlib --without-snapshot && \
+    ./configure --prefix=/usr --shared-libuv --shared-zlib --without-snapshot && \
     make -j$(grep -c '^processor' /proc/cpuinfo) && \
     make install && \
     paxctl -cm /usr/bin/node && \
