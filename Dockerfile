@@ -8,15 +8,15 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
     apk update && \
     apk upgrade && \
     apk add libuv libgcc libstdc++ && \
-    apk add -t build-deps openssl-dev git curl make zlib-dev gcc g++ python linux-headers binutils-gold libuv-dev paxmark && \
+    apk add -t build-deps openssl-dev git curl make zlib-dev gcc g++ python linux-headers binutils-gold libuv-dev paxctl && \
     cd /tmp && \
     wget https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz && \
     tar zxf node-${NODE_VERSION}.tar.gz && \
     cd node-${NODE_VERSION} && \
-    ./configure --prefix=/usr --shared-zlib --without-snapshot && \
+    ./configure --prefix=/usr --shared-libuv --shared-openssl --shared-zlib --without-snapshot && \
     make -j$(grep -c '^processor' /proc/cpuinfo) && \
     make install && \
-    paxmark -m /usr/bin/node && \
+    paxctl -cm /usr/bin/node && \
     adduser -D -G daemon -u 1000 -h /app -s /bin/sh nodejs && \
     npm install -g npm@${NPM_VERSION} && \
     apk del --purge build-deps && \
