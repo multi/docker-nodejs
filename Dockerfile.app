@@ -2,9 +2,7 @@ FROM multi/nodejs
 
 USER root
 
-ENV NODE_PATH /app-libs/node_modules
-
-ADD app/package.json app/bower.json /app-libs/
+ADD package.json bower.json /app-libs/
 
 RUN apk add --update -t build-deps curl git binutils-gold build-base python linux-headers krb5-dev && \
     chown -R nodejs:daemon /app-libs && \
@@ -20,4 +18,4 @@ USER nodejs
 
 EXPOSE 1337
 
-CMD ["node", "index"]
+CMD ["entrypoint.sh"]
