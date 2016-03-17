@@ -1,8 +1,8 @@
-# multi/nodejs:5.6.0
+# multi/nodejs:5.8.0
 
 FROM alpine:edge
 
-ENV NODE_VERSION=v5.6.0 NPM_VERSION=3
+ENV NODE_VERSION=v5.8.0 NPM_VERSION=3
 
 RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk update && \
