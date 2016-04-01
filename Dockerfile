@@ -1,8 +1,8 @@
-# multi/nodejs:5.9.1
+# multi/nodejs:5.10.0
 
 FROM alpine:edge
 
-ENV NODE_VERSION=v5.9.1 NPM_VERSION=3
+ENV NODE_VERSION=v5.10.0
 
 RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk update && \
@@ -18,7 +18,7 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
     make install && \
     paxctl -cm /usr/bin/node && \
     adduser -D -G daemon -u 1000 -h /app -s /bin/sh nodejs && \
-    npm install -g npm@${NPM_VERSION} && \
+    npm install -g npm@latest && \
     apk del --purge build-deps && \
     rm -rf /usr/share/man /tmp/* /var/cache/apk/* \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
