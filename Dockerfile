@@ -8,7 +8,7 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
     apk update && \
     apk upgrade && \
     apk add libuv libgcc libstdc++ && \
-    apk add -t build-deps openssl-dev git curl make zlib-dev gcc g++ python linux-headers binutils-gold libuv-dev paxctl && \
+    apk add -t build-deps openssl-dev git curl make zlib-dev gcc g++ python linux-headers binutils-gold libuv-dev paxctl wget && \
     cd /tmp && \
     wget https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz && \
     tar zxf node-${NODE_VERSION}.tar.gz && \
