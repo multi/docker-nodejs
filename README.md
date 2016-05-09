@@ -1,4 +1,4 @@
-### nodejs 5.11.0 + npm@latest
+### nodejs 6.1.0 + npm@latest
 
 per project - build new image using this one as base, with `Dockerfile.app`
 

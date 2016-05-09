@@ -1,8 +1,8 @@
-# multi/nodejs:5.11.0
+# multi/nodejs:6.1.0
 
 FROM alpine:edge
 
-ENV NODE_VERSION=v5.11.0
+ENV NODE_VERSION=v6.1.0
 
 RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk update && \
